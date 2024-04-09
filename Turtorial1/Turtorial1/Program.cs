@@ -1,3 +1,5 @@
+using Turtorial1.Endpoints;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,28 +18,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//Minimal API
-app.MapGet("/animals", () =>
-{
-    // 200 - Ok
-    // 201 - Created
-    // 400 - Bad request
-    // 401 - Unauthorized
-    // 403 - Forbidden
-    // 404 - Not found 
-    
-    return Results.Ok();
-});
-
-app.MapGet("/animals/{id}", (int id) =>
-{
-    return Results.Ok(id);
-});
-
-app.MapPost("/animals", () =>
-{
-    return Results.Created();
-});
+app.MapAnimalEndpoints();
 
 app.Run();
 
