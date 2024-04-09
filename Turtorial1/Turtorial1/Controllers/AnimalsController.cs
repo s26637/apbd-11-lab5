@@ -14,7 +14,7 @@ public class AnimalsController : ControllerBase
         return Ok();
     }
     
-    [HttpGet]
+    [HttpGet("{id}")]
     public IActionResult GetAnimals(int id)
     {
         return Ok(id);
